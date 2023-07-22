@@ -1,2 +1,1 @@
-# React-mui-blog-app
-Created with CodeSandbox
+# clone of https://nextjs-starter-prismic-blog.vercel.app/
