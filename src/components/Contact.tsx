@@ -7,7 +7,7 @@ import Grid from "@mui/material/Grid";
 import SendIcon from "@mui/icons-material/Send";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert, { AlertProps } from "@mui/material/Alert";
-
+// @ts-ignore
 // React-hook-form
 import { useForm, Controller } from "react-hook-form";
 import * as Yup from "yup";
@@ -21,7 +21,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
 });
 
 const validationSchema = Yup.object().shape({
-  email: Yup.string().required("Required")
+  email: Yup.string().required("Required"),
 });
 
 interface IFormInput {
@@ -33,7 +33,7 @@ interface IFormInput {
 const defaultValues = {
   email: "",
   name: "",
-  message: ""
+  message: "",
 };
 
 export default function Contact() {
@@ -52,7 +52,6 @@ export default function Contact() {
 
   const { handleSubmit, control, reset } = useForm<IFormInput>({
     defaultValues: defaultValues,
-    resolver: yupResolver(validationSchema)
   });
 
   const onSubmit = (data: IFormInput) => {
@@ -66,7 +65,7 @@ export default function Contact() {
     <Box
       sx={{
         display: "flex",
-        flexDirection: "column"
+        flexDirection: "column",
       }}
     >
       <Container component="main" sx={{ mt: 4, mb: 8 }} maxWidth="sm">
@@ -79,7 +78,7 @@ export default function Contact() {
                   control={control}
                   render={({
                     field: { onChange, value, ref },
-                    fieldState: { error }
+                    fieldState: { error },
                   }) => {
                     return (
                       <TextField
@@ -107,7 +106,7 @@ export default function Contact() {
                   rules={{ required: true }}
                   render={({
                     field: { onChange, value, onBlur },
-                    fieldState: { error }
+                    fieldState: { error },
                   }) => {
                     return (
                       <TextField
@@ -133,7 +132,7 @@ export default function Contact() {
                   control={control}
                   render={({
                     field: { onChange, value, ref },
-                    fieldState: { error }
+                    fieldState: { error },
                   }) => {
                     return (
                       <TextField
@@ -163,7 +162,7 @@ export default function Contact() {
                   endIcon={<SendIcon />}
                   sx={{
                     mt: 3,
-                    mb: 2
+                    mb: 2,
 
                     // "&:hover": {
                     //   "&:after": {
